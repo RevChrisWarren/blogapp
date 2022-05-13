@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Post, User, Comment, Vote } = require('../../models');
-const withAuth = require('../../utils/auth');
+const { Post, User, Comment } = require('../../models');
+//const withAuth = require('../../utils/auth');
 
 //get all comments
 router.get('/', (req, res) => {
@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
         include: [
             {
                 model: Post,
-                attributes: ['id', 'post_url', 'user_id'],
+                attributes: ['id', 'blog_post', 'user_id'],
                 include: {
                     model: User,
                     attributes: ['username']
@@ -41,7 +41,7 @@ router.get('/:id', (req, res) => {
         include: [
             {
                 model: Post,
-                attributes: ['id', 'post_url', 'user_id'],
+                attributes: ['id', 'blog_post', 'user_id'],
                 include: {
                     model: User,
                     attributes: ['username']
@@ -62,7 +62,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     Comment.create({
-        comment_text: req.body.commet_text
+        comment_text: req.body.comment_text
     })
         .then(dbCommentData => res.json(dbCommentData))
         .catch(err => {
@@ -113,3 +113,5 @@ router.delete('/:id', (req, res) => {
             res.status(500).json(err);
         });
 })
+
+module.exports = router;
