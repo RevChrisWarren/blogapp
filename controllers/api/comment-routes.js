@@ -62,7 +62,9 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     Comment.create({
-        comment_text: req.body.comment_text
+        comment_text: req.body.comment_text,
+        post_id: req.body.post_id,
+        user_id: req.body.user_id
     })
         .then(dbCommentData => res.json(dbCommentData))
         .catch(err => {
@@ -74,7 +76,7 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
     Comment.update(
         {
-            comment_text: req.nody.comment_text
+            comment_text: req.body.comment_text
         },
         {
             where: {
