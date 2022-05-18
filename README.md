@@ -5,3 +5,6 @@
 ## It uses the sequelize package to access MySQL through javascript
 ## It uses handlebars for HTML templating
 
+### here's a link to the deployed application on heroku
+https://afternoon-dusk-89933.herokuapp.com/ 
+
