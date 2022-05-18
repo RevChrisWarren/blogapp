@@ -8,3 +8,4 @@
 ### here's a link to the deployed application on heroku
 https://afternoon-dusk-89933.herokuapp.com/ 
 
+![Screenshot of application](blogapp.png)
